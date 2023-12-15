@@ -19,3 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 <? 
+// توجيه المستخدم بنجاح
+if ($row = $statement->fetch()) {
+    $_SESSION["email"] = $email;
+    $_SESSION["username"] = $row['username'];
+    header("Location: dashboard.php"); // توجيه المستخدم بنجاح
+    exit();
+}
